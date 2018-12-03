@@ -1,0 +1,25 @@
+<h1>@<%= @user.username %>'s Profile and Twits</h1>
+
+<p><%= @user.name %></p>
+<p><%= @user.location %></p>
+<p><%= @user.bio %></p>
+
+<p>
+	<% if current_user.following.include?(@user.id) %>
+		<!-- unfollow button -->
+		<%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger" %>
+	<% else %>
+		<!-- follow button -->
+		<% if current_user.id != @user.id %>
+		<%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>
+		<% end %>
+	<% end %>
+</p>
+
+
+<% @user.twits.each do |twit| %>
+	<div>
+		<p>@<%= @user.username %></p>
+		<p>@<%= twit.message %></p>
+	</div>
+<% end %>
