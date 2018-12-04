@@ -1,6 +1,8 @@
 class TwitsController < ApplicationController
   before_action :set_twit, only: [:show, :edit, :update, :destroy]
 
+  include TwitsHelper
+
 
   # GET /twits
   # GET /twits.json
@@ -12,6 +14,8 @@ class TwitsController < ApplicationController
   # GET /twits/1.json
   def show
   end
+
+
 
   # GET /twits/new
   def new
@@ -25,7 +29,9 @@ class TwitsController < ApplicationController
   # POST /twits
   # POST /twits.json
   def create
-    @twit = Twit.new(twit_params)
+    @twit = Twit.create(twit_params)
+
+    @twit = anchor_hash(@twit)
 
     respond_to do |format|
       if @twit.save
