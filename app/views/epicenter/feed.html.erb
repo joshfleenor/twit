@@ -1,12 +1,11 @@
+<% random_twit %>
+
 <h1>@<%= current_user.username %>'s Twit Feed</h1>
 <p>Here is what your "friends" are saying:</p>
 
 <div>
 	<% @following_twits.each do |twit| %>
-		<div>
-			<p>@<%= twit.user.username %></p>
-			<p><%= twit.message.html_safe %></p>
-		</div>
+		<%= render 'layouts/twit', twit: twit %>
 	<% end %>
 
 </div>

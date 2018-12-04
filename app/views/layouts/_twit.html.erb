@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+        <div class="panel-heading">
+<%= image_tag profile_pic(twit.user), size: 50, class: "user-pic-nav" %><br>
+<strong><%= twit.user.name %></strong> @<%= twit.user.username %>
+	<%= time_ago_in_words(twit.created_at).gsub('about','') %> ago
+		</div>
+		<div class="panel-body">
+<%= twit.message %>
+</div>
+</div>

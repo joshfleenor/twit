@@ -18,8 +18,5 @@
 
 
 <% @user.twits.each do |twit| %>
-	<div>
-		<p>@<%= @user.username %></p>
-		<p>@<%= twit.message %></p>
-	</div>
+	<%= render 'layouts/twit', twit: twit %>
 <% end %>

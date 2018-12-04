@@ -1,0 +1,2 @@
+class TwitTag < ApplicationRecord
+end
