@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'epicenter#feed'
+
+  get 'all_users' => 'epicenter#all_users'
   
   get 'show_user' => 'epicenter#show_user'
 
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   get 'unfollow' => 'epicenter#unfollow'
 
   get 'tag_twits' => 'epicenter#tag_twits'
+
+
   
   resources :twits
   devise_for :users

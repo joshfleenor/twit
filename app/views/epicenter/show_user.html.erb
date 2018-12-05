@@ -1,4 +1,4 @@
-<h1>@<%= @user.username %>'s Profile and Twits</h1>
+<h3>@<%= @user.username %>'s Profile and Twits</h3>
 
 <p><%= @user.name %></p>
 <p><%= @user.location %></p>
@@ -7,7 +7,7 @@
 <p>
 	<% if current_user.following.include?(@user.id) %>
 		<!-- unfollow button -->
-		<%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger" %>
+		<%= link_to "Following", unfollow_path(id: @user.id), class: "btn btn-primary", id:"unfollow_btn" %>
 	<% else %>
 		<!-- follow button -->
 		<% if current_user.id != @user.id %>

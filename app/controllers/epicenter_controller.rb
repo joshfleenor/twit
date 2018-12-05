@@ -9,6 +9,11 @@ class EpicenterController < ApplicationController
   	end
   end
 
+  def all_users
+    @users = User.all 
+    # User.order(:name) add a feature
+  end
+
   def show_user
   	@user = User.find(params[:id])
   end

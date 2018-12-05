@@ -76,6 +76,6 @@ class TwitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def twit_params
-      params.require(:twit).permit(:message, :user_id)
+      params.require(:twit).permit(:message, :user_id, :link)
     end
 end
