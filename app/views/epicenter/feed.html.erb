@@ -11,13 +11,17 @@
 	        			<p>Twits <%= current_user.twits.count%></p>
 	        		</div>
 	        		<div class=col-md-3>
-	        			<p>Following <%= @following_twits.count %></p>
+	        			<p>Following </p>
+	        		</div>
+	        		<div class=col-md-3>
+	        			<p>Followers </p>
 	        		</div>
 	        	</div>
 	        </div>
 		</div>
 	</div>
 	<div class=col-md-6>
+		<div>Make the "Quick twit" box</div>
 		<div class="panel panel-info">
 	        <div class="panel-body">
 				<h1>@<%= current_user.username %>'s Twit Feed</h1>

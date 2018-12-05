@@ -1,5 +1,8 @@
 <h3>@<%= @user.username %>'s Profile and Twits</h3>
 
+<%= link_to "Following", following_path(id: @user.id) %>
+<%= link_to "Followers", followers_path(id: @user.id) %>
+
 <p><%= @user.name %></p>
 <p><%= @user.location %></p>
 <p><%= @user.bio %></p>
@@ -17,6 +20,6 @@
 </p>
 
 
-<% @user.twits.each do |twit| %>
+<% @user.twits.order(created_at: :desc).each do |twit| %>
 	<%= render 'layouts/twit', twit: twit %>
 <% end %>

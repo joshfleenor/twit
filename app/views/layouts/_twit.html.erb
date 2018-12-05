@@ -2,11 +2,14 @@
         <div class="panel-heading">
         	<div class="row">
     			<div class=col-md-2>
+    				<div class="">
 					<%= image_tag profile_pic(twit.user), size: 50, class: "user-pic-nav" %>
+					</div>
 				</div>
 				<div class=col-md-10>
 					<strong><%= twit.user.name %></strong><br> @<%= link_to twit.user.username, show_user_path(id: twit.user.id) %>
-					<%= time_ago_in_words(twit.created_at).gsub('about','') %> ago
+					<%= time_ago_in_words(twit.created_at) if Time.now - twit.created_at < 86400 %>
+					<%= twit.created_at.strftime('%b%e') if Time.now - twit.created_at > 86400 %>
 				</div>
 			</div>
 		</div>

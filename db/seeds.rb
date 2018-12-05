@@ -8,12 +8,15 @@
 
 require 'open-uri'
 require 'yaml'
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 def destroy_all
     User.destroy_all
     Twit.destroy_all
-    # TweetTag.destroy_all
-    # Tag.destroy_all
+    TwitTag.destroy_all
+    Tag.destroy_all
     FileUtils.rm_rf(Dir['app/assets/images/autopics/*'])
     p 'everything is gone'
 end
@@ -40,7 +43,7 @@ def create_characters(character_array)
 
         p "Creating #{character}"
 
-        # pic = scrape_image(character)
+        pic = scrape_image(character)
         name = character
         username = character.delete(' ')
         
@@ -51,7 +54,7 @@ def create_characters(character_array)
             location: Faker::TwinPeaks.location, 
             email: "#{username}@tp.com", 
             password: "111111", 
-            # autopic: "autopics/#{username}.png", 
+            autopic: "autopics/#{username}.png", 
             bot: :true
         )
 

@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @twits.each do |twit| %>
+    <% @twits.order(created_at: :desc).each do |twit| %>
       <tr>
         <td><%= twit.message %></td>
         <td><%= link_to twit.user.username, show_user_path(id: twit.user.id) %></td>
